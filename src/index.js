@@ -1,6 +1,7 @@
 import app from "./app.js";
 import {dataBase} from "./db.js";
+import { PORT } from "./config.js";
 
 dataBase();
-app.listen(3000)
-console.log('Servidor corriendo sobre el puerto', 3000);
+app.listen(PORT)
+console.log('Servidor corriendo sobre el puerto', PORT);
