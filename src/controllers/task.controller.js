@@ -21,11 +21,12 @@ export const getTask = async (req, res) => {
   
 export const createTask = async (req, res) => {
     try {
-      const { title, description, date } = req.body;
+      const { title, description, date, status } = req.body;
       const newTask = new TaskModel({
         title,
         description,
         date,
+        status,
         user: req.user.id,
       });
       await newTask.save();
@@ -49,10 +50,10 @@ export const deleteTask = async (req, res) => {
   
 export const updateTask = async (req, res) => {
     try {
-      const { title, description, date } = req.body;
+      const { title, description, date, status } = req.body;
       const taskUpdated = await TaskModel.findOneAndUpdate(
         { _id: req.params.id },
-        { title, description, date },
+        { title, description, date, status },
         { new: true }
       );
       return res.json(taskUpdated);
