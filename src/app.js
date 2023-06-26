@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 app.use(cors({
     credentials: true,
     origin: 'https://neon-shortbread-e9495a.netlify.app',
-    // origin: 'http://localhost:5173'
+    origin: 'http://localhost:5173',
 }));
 app.use(express.json());
 app.use(cookieParser());
